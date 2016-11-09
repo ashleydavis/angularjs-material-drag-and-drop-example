@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="app.css">
+    </head>
+    <body ng-app="YourApp">
+
+        <div ng-controller="YourController" layout="row" class="main">
+
+            <md-sidenav 
+                layout="column" 
+                class="md-sidenav-left"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-md')"
+                md-whiteframe="4"
+                >
+                <md-toolbar>
+                    <div class="md-toolbar-tools" layout="row">
+                        <h1 flex>
+                            <span>Sidenav</span>
+                        </h1>
+                        <md-button 
+                            class="md-icon-button" 
+                            ng-click="closeLeftSideNav()"
+                            hide-gt-md
+                            >
+                            <ng-md-icon icon="close"></ng-md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+
+                <md-content layout-padding>
+                    <p hide show-gt-md>
+                    This sidenav is locked open on your device. To go back to the default behavior,
+                    narrow your display.
+                    </p>
+
+                    <p>              
+                    Lorem ipsum dolor sit amet, duo ad mundi affert maluisset. Ea vis mentitum assentior, mei in doming omnium. Mei ipsum malorum lobortis ad, ad purto iisque mel. Sea apeirian detraxit ne. Duo habemus expetendis eu, sumo expetendis duo ad, pro ei consul vivendo. Adhuc aliquid splendide ex quo, vis id adhuc iusto tibique, his te posse evertitur cotidieque.
+                    </p>
+
+                    <p>              
+                    Qui ut amet modo nibh, qui cu vitae euismod electram. Est quot populo utroque in, purto vocent referrentur et quo. Viris tibique an nec, nam id zril tantas consequat, id vim everti mediocrem. No vix habeo semper conclusionemque, ne vidit dolore aperiam est. Cu sea quando putent ullamcorper.
+                    </p>
+
+                </md-content>                
+            </md-sidenav>
+
+            <md-content flex layout="column">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <md-button 
+                            class="md-icon-button" 
+                            ng-click="toggleLeftSideNav()"
+                            hide-gt-md
+                            >
+                            <ng-md-icon icon="menu"></ng-md-icon>
+                        </md-button>
+                        <h1>
+                            <span>Content area</span>
+                        </h1>
+                    </div>
+                </md-toolbar>
+
+                <md-content layout-padding>
+
+                    <p>              
+                    Lorem ipsum dolor sit amet, duo ad mundi affert maluisset. Ea vis mentitum assentior, mei in doming omnium. Mei ipsum malorum lobortis ad, ad purto iisque mel. Sea apeirian detraxit ne. Duo habemus expetendis eu, sumo expetendis duo ad, pro ei consul vivendo. Adhuc aliquid splendide ex quo, vis id adhuc iusto tibique, his te posse evertitur cotidieque.
+                    </p>
+
+                    <p>              
+                    Qui ut amet modo nibh, qui cu vitae euismod electram. Est quot populo utroque in, purto vocent referrentur et quo. Viris tibique an nec, nam id zril tantas consequat, id vim everti mediocrem. No vix habeo semper conclusionemque, ne vidit dolore aperiam est. Cu sea quando putent ullamcorper.
+                    </p>
+
+                    <p>              
+                    Vis minim lobortis eu, agam molestiae mei ne. Quo eu vivendo civibus repudiandae, ei vim velit dolorum, possim prompta nec et. Ex nam modus nominavi, debet quaeque eu vel. Ex iudico impedit neglegentur vis. Affert congue nemore te duo, diceret aliquid percipitur sea ex.
+                    </p>
+
+                    <p>              
+                    Mel ei tale utroque. Reque veniam appareat an pro, dicat putant lobortis mei ad. Ne sint graece mucius qui. Cu munere vidisse salutatus eam. Argumentum referrentur sit in, eu cibo elitr definiebas mel. Mea ornatus meliore in, eu mel tota dicit.
+                    </p>
+
+                    <p>              
+                    Ne cibo quaeque consequuntur his, has ea docendi accusata reformidans. In veri definitiones ius, sed voluptua periculis te, eirmod dissentiunt at has. Et modo veritus has. Ne sumo propriae vulputate vix, id suas dolorum alienum vel, an aperiri evertitur sit. Wisi ipsum persequeris at nec, et fugit nonumy volutpat mea.
+                    </p>
+
+                </md-content>
+
+            </md-content>
+        
+        </div>
+
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-aria/angular-aria.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-material/angular-material.js"></script>
+        <script src="/bower_components/angular-material-icons/angular-material-icons.js"></script>
+        <script src="app.js"></script>
+
+    </body>
+</html>
