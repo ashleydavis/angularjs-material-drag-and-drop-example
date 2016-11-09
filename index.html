@@ -3,54 +3,18 @@
     <head>
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="app.css">
     </head>
     <body ng-app="YourApp">
 
         <div ng-controller="YourController" layout="row" class="main">
 
-            <md-sidenav 
-                layout="column" 
-                class="md-sidenav-left"
-                md-component-id="left"
-                md-is-locked-open="$mdMedia('gt-md')"
-                md-whiteframe="4"
-                >
-                <md-toolbar>
-                    <div class="md-toolbar-tools" layout="row">
-                        <h1 flex>
-                            <span>Sidenav</span>
-                        </h1>
-                        <md-button 
-                            class="md-icon-button" 
-                            ng-click="closeLeftSideNav()"
-                            hide-gt-md
-                            >
-                            <ng-md-icon icon="close"></ng-md-icon>
-                        </md-button>
-                    </div>
-                </md-toolbar>
-
-                <md-content layout-padding>
-                    <p hide show-gt-md>
-                    This sidenav is locked open on your device. To go back to the default behavior,
-                    narrow your display.
-                    </p>
-
-                    <p>              
-                    Lorem ipsum dolor sit amet, duo ad mundi affert maluisset. Ea vis mentitum assentior, mei in doming omnium. Mei ipsum malorum lobortis ad, ad purto iisque mel. Sea apeirian detraxit ne. Duo habemus expetendis eu, sumo expetendis duo ad, pro ei consul vivendo. Adhuc aliquid splendide ex quo, vis id adhuc iusto tibique, his te posse evertitur cotidieque.
-                    </p>
-
-                    <p>              
-                    Qui ut amet modo nibh, qui cu vitae euismod electram. Est quot populo utroque in, purto vocent referrentur et quo. Viris tibique an nec, nam id zril tantas consequat, id vim everti mediocrem. No vix habeo semper conclusionemque, ne vidit dolore aperiam est. Cu sea quando putent ullamcorper.
-                    </p>
-
-                </md-content>                
-            </md-sidenav>
-
             <md-content flex layout="column">
+                
                 <md-toolbar>
                     <div class="md-toolbar-tools">
+                        <!--fio:
                         <md-button 
                             class="md-icon-button" 
                             ng-click="toggleLeftSideNav()"
@@ -58,8 +22,9 @@
                             >
                             <ng-md-icon icon="menu"></ng-md-icon>
                         </md-button>
+                        -->
                         <h1>
-                            <span>Content area</span>
+                            <span>Droppable area</span>
                         </h1>
                     </div>
                 </md-toolbar>
@@ -89,6 +54,51 @@
                 </md-content>
 
             </md-content>
+
+            <md-sidenav 
+                layout="column" 
+                class="md-sidenav-right"
+                md-component-id="right"
+                md-is-locked-open="true"
+                md-whiteframe="4"
+                >
+                <md-toolbar>
+                    <div class="md-toolbar-tools" layout="row">
+                        <h1 flex>
+                            <span>Palette</span>
+                        </h1>
+                        <!--fio:
+                        <md-button 
+                            class="md-icon-button" 
+                            ng-click="closeLeftSideNav()"
+                            hide-gt-md
+                            >
+                            <ng-md-icon icon="close"></ng-md-icon>
+                        </md-button>
+                        -->
+                    </div>
+                </md-toolbar>
+
+                <md-content layout-padding>
+
+                    <form name="filterForm">
+                        <md-input-container class="md-icon-float">
+                            <label>Filter</label>
+                            <md-icon>search</md-icon>
+                            <input name="paletteFilter" ng-model="paletteFilter">
+                        </md-input-container>
+                    </form>                    
+
+                    <p>              
+                    Lorem ipsum dolor sit amet, duo ad mundi affert maluisset. Ea vis mentitum assentior, mei in doming omnium. Mei ipsum malorum lobortis ad, ad purto iisque mel. Sea apeirian detraxit ne. Duo habemus expetendis eu, sumo expetendis duo ad, pro ei consul vivendo. Adhuc aliquid splendide ex quo, vis id adhuc iusto tibique, his te posse evertitur cotidieque.
+                    </p>
+
+                    <p>              
+                    Qui ut amet modo nibh, qui cu vitae euismod electram. Est quot populo utroque in, purto vocent referrentur et quo. Viris tibique an nec, nam id zril tantas consequat, id vim everti mediocrem. No vix habeo semper conclusionemque, ne vidit dolore aperiam est. Cu sea quando putent ullamcorper.
+                    </p>
+
+                </md-content>                
+            </md-sidenav>
         
         </div>
 
