@@ -11,47 +11,29 @@
         <div ng-controller="YourController" layout="row" class="main">
 
             <md-content flex layout="column">
-                
+
                 <md-toolbar>
                     <div class="md-toolbar-tools">
-                        <!--fio:
-                        <md-button 
-                            class="md-icon-button" 
-                            ng-click="toggleLeftSideNav()"
-                            hide-gt-md
-                            >
-                            <ng-md-icon icon="menu"></ng-md-icon>
-                        </md-button>
-                        -->
                         <h1>
                             <span>Droppable area</span>
                         </h1>
                     </div>
                 </md-toolbar>
 
-                <md-content layout-padding>
-
-                    <p>              
-                    Lorem ipsum dolor sit amet, duo ad mundi affert maluisset. Ea vis mentitum assentior, mei in doming omnium. Mei ipsum malorum lobortis ad, ad purto iisque mel. Sea apeirian detraxit ne. Duo habemus expetendis eu, sumo expetendis duo ad, pro ei consul vivendo. Adhuc aliquid splendide ex quo, vis id adhuc iusto tibique, his te posse evertitur cotidieque.
-                    </p>
-
-                    <p>              
-                    Qui ut amet modo nibh, qui cu vitae euismod electram. Est quot populo utroque in, purto vocent referrentur et quo. Viris tibique an nec, nam id zril tantas consequat, id vim everti mediocrem. No vix habeo semper conclusionemque, ne vidit dolore aperiam est. Cu sea quando putent ullamcorper.
-                    </p>
-
-                    <p>              
-                    Vis minim lobortis eu, agam molestiae mei ne. Quo eu vivendo civibus repudiandae, ei vim velit dolorum, possim prompta nec et. Ex nam modus nominavi, debet quaeque eu vel. Ex iudico impedit neglegentur vis. Affert congue nemore te duo, diceret aliquid percipitur sea ex.
-                    </p>
-
-                    <p>              
-                    Mel ei tale utroque. Reque veniam appareat an pro, dicat putant lobortis mei ad. Ne sint graece mucius qui. Cu munere vidisse salutatus eam. Argumentum referrentur sit in, eu cibo elitr definiebas mel. Mea ornatus meliore in, eu mel tota dicit.
-                    </p>
-
-                    <p>              
-                    Ne cibo quaeque consequuntur his, has ea docendi accusata reformidans. In veri definitiones ius, sed voluptua periculis te, eirmod dissentiunt at has. Et modo veritus has. Ne sumo propriae vulputate vix, id suas dolorum alienum vel, an aperiri evertitur sit. Wisi ipsum persequeris at nec, et fugit nonumy volutpat mea.
-                    </p>
-
-                </md-content>
+                <div
+                    droppable 
+                    drop="handleDrop()" 
+                    layout="column"
+                    >
+                    <div 
+                        class="item"
+                        ng-repeat="obj in dropped"
+                        droppable
+                        drop="dropItem(obj, $index)"
+                        >
+                        {{obj.name}}
+                    </div>
+                </div>
 
             </md-content>
 
@@ -61,25 +43,17 @@
                 md-component-id="right"
                 md-is-locked-open="true"
                 md-whiteframe="4"
+                style="overflow: visible;"
                 >
                 <md-toolbar>
                     <div class="md-toolbar-tools" layout="row">
                         <h1 flex>
                             <span>Palette</span>
                         </h1>
-                        <!--fio:
-                        <md-button 
-                            class="md-icon-button" 
-                            ng-click="closeLeftSideNav()"
-                            hide-gt-md
-                            >
-                            <ng-md-icon icon="close"></ng-md-icon>
-                        </md-button>
-                        -->
                     </div>
                 </md-toolbar>
 
-                <md-content layout-padding>
+                <md-content layout-padding style="overflow: visible;">
 
                     <form name="filterForm">
                         <md-input-container class="md-icon-float">
@@ -87,15 +61,19 @@
                             <md-icon>search</md-icon>
                             <input name="paletteFilter" ng-model="paletteFilter">
                         </md-input-container>
-                    </form>                    
+                    </form>               
 
-                    <p>              
-                    Lorem ipsum dolor sit amet, duo ad mundi affert maluisset. Ea vis mentitum assentior, mei in doming omnium. Mei ipsum malorum lobortis ad, ad purto iisque mel. Sea apeirian detraxit ne. Duo habemus expetendis eu, sumo expetendis duo ad, pro ei consul vivendo. Adhuc aliquid splendide ex quo, vis id adhuc iusto tibique, his te posse evertitur cotidieque.
-                    </p>
-
-                    <p>              
-                    Qui ut amet modo nibh, qui cu vitae euismod electram. Est quot populo utroque in, purto vocent referrentur et quo. Viris tibique an nec, nam id zril tantas consequat, id vim everti mediocrem. No vix habeo semper conclusionemque, ne vidit dolore aperiam est. Cu sea quando putent ullamcorper.
-                    </p>
+                    <div layout="column">
+                        <div 
+                            class="palette-item" 
+                            ng-repeat="obj in palette"
+                            draggable
+                            start-drag="startDrag(obj)"
+                            id="item-$index"
+                            >
+                            {{obj.name}}
+                        </div>
+                    </div>     
 
                 </md-content>                
             </md-sidenav>
@@ -107,6 +85,7 @@
         <script src="/bower_components/angular-animate/angular-animate.js"></script>
         <script src="/bower_components/angular-material/angular-material.js"></script>
         <script src="/bower_components/angular-material-icons/angular-material-icons.js"></script>
+        <script src="drag-and-drop.js"></script>
         <script src="app.js"></script>
 
     </body>

@@ -1,4 +1,31 @@
-
 .main {
     height: 100%;
+}
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+[droppable] {
+    background-color: #e8fce3;
+    height: 100%;
+}
+
+.item {
+    background-color: tan;
+    margin: 5px;
+    height: 50px;
+}
+
+.palette-item {
+    background-color: lightblue;
+    margin: 5px;
+    height: 50px;
 }
