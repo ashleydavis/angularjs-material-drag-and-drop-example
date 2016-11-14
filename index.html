@@ -4,11 +4,17 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" type="text/css" href="/bower_components/ng-sortable/dist/ng-sortable.min.css">
         <link rel="stylesheet" href="app.css">
     </head>
     <body ng-app="YourApp">
 
-        <div ng-controller="YourController" layout="row" class="main">
+        <div 
+            ng-controller="YourController" 
+            layout="row" 
+            class="main" 
+            id="sortable-container"
+            >
 
             <md-content
                 class="content-area" 
@@ -25,19 +31,19 @@
                 </md-toolbar>
 
                 <div
-                    class="drop-area"
-                    droppable 
-                    drop="handleDrop()" 
+					class="drop-area"
                     layout="column"
+                    as-sortable="sortableOptions" 
+                    ng-model="dropped"
                     >
                     <div 
-                        class="item"
+                        class="draggable-item"
                         ng-repeat="obj in dropped"
-                        droppable
-                        drop="dropItem(obj, $index)"
-                        drag-enter="dragEnter(obj, $index)"
+                        as-sortable-item
                         >
-                        {{obj.name}} | {{obj.temp}}
+                        <div as-sortable-item-handle>
+                            {{obj.name}} | {{obj.temp}}
+                        </div>
                     </div>
                 </div>
 
@@ -69,16 +75,19 @@
                         </md-input-container>
                     </form>               
 
-                    <div layout="column">
+                    <div 
+                        layout="column"
+                        as-sortable="sortableCloneOptions" 
+                        ng-model="palette"
+                        >
                         <div 
-                            class="palette-item" 
+                            class="draggable-item"                        
                             ng-repeat="obj in palette"
-                            draggable
-                            start-drag="startDrag(obj)"
-                            end-drag="endDrag()"
-                            id="item-$index"
+                            as-sortable-item
                             >
-                            {{obj.name}}
+                            <div as-sortable-item-handle>
+                                {{obj.name}}
+                            </div>
                         </div>
                     </div>     
 
@@ -92,7 +101,7 @@
         <script src="/bower_components/angular-animate/angular-animate.js"></script>
         <script src="/bower_components/angular-material/angular-material.js"></script>
         <script src="/bower_components/angular-material-icons/angular-material-icons.js"></script>
-        <script src="drag-and-drop.js"></script>
+        <script type="text/javascript" src="/bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
         <script src="app.js"></script>
 
     </body>

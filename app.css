@@ -2,21 +2,6 @@
     height: 100%;
 }
 
-/* Prevent the text contents of draggable elements from being selectable. */
-[draggable] {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  /* Required to make elements draggable in old WebKit */
-  -khtml-user-drag: element;
-  -webkit-user-drag: element;
-}
-
-[droppable] {
-    height: 100%;
-}
-
 .content-area {
     background-color: #e8fce3;
 }
@@ -24,20 +9,30 @@
 .drop-area {
     margin: 10px;
     padding: 5px;
+    height: 100%;
 }
+
+.draggable-item {
+    background-color: tan;
+    margin: 5px;
+    height: 50px;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */ 
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+/*todo:
+
+as-sortable-placeholder
+    The place where it will be dropped
 
 .over {
     border: 2px dashed black;    
 }
 
-.item {
-    background-color: tan;
-    margin: 5px;
-    height: 50px;
-}
-
-.palette-item {
-    background-color: lightblue;
-    margin: 5px;
-    height: 50px;
-}
+*/
