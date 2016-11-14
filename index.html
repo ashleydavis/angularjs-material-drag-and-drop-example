@@ -10,7 +10,11 @@
 
         <div ng-controller="YourController" layout="row" class="main">
 
-            <md-content flex layout="column">
+            <md-content
+                class="content-area" 
+                flex 
+                layout="column"
+                >
 
                 <md-toolbar>
                     <div class="md-toolbar-tools">
@@ -21,6 +25,7 @@
                 </md-toolbar>
 
                 <div
+                    class="drop-area"
                     droppable 
                     drop="handleDrop()" 
                     layout="column"
@@ -30,8 +35,9 @@
                         ng-repeat="obj in dropped"
                         droppable
                         drop="dropItem(obj, $index)"
+                        drag-enter="dragEnter(obj, $index)"
                         >
-                        {{obj.name}}
+                        {{obj.name}} | {{obj.temp}}
                     </div>
                 </div>
 
@@ -69,6 +75,7 @@
                             ng-repeat="obj in palette"
                             draggable
                             start-drag="startDrag(obj)"
+                            end-drag="endDrag()"
                             id="item-$index"
                             >
                             {{obj.name}}

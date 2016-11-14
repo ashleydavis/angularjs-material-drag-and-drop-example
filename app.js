@@ -30,17 +30,41 @@ angular.module( 'YourApp', [ 'ngMaterial', 'ngMdIcons', 'drag-and-drop' ] )
 
         $scope.handleDrop = function() {
             if (dragging) {
+                $scope.dropped = $scope.dropped.filter(function (item) {
+                        return !item.temp;
+                    }); 
                 $scope.dropped.push(angular.extend({}, dragging));
                 dragging = null;
             }
         };   
 
+        $scope.dragEnter = function (item, index) {
+            if (dragging && !item.temp) {
+                $scope.dropped = $scope.dropped.filter(function (item) {
+                        return !item.temp;
+                    }); 
+                $scope.dropped.splice(index, 0, angular.extend({}, dragging, { temp: true }));
+            }
+        };  
+
         $scope.dropItem = function (item, index) {
             if (dragging) {
+                $scope.dropped = $scope.dropped.filter(function (item) {
+                        return !item.temp;
+                    }); 
                 $scope.dropped.splice(index, 0, angular.extend({}, dragging));
                 dragging = null;
             }
-        };  
+        };
+
+        $scope.endDrag = function () {
+            if (dragging) {
+                $scope.dropped = $scope.dropped.filter(function (item) {
+                        return !item.temp;
+                    });
+                dragging = null;
+            }
+        };
 
     });
 

@@ -6,6 +6,7 @@ angular.module( 'drag-and-drop', [] )
         return {
             scope: {
                 startDrag: '&',
+                endDrag: '&',
             },
             link: function (scope, element) {
                 // this gives us the native JS object
@@ -28,6 +29,7 @@ angular.module( 'drag-and-drop', [] )
                     'dragend',
                     function (e) {
                         this.classList.remove('drag');
+                        scope.$apply('endDrag()');
                         return false;
                     },
                     false
@@ -38,7 +40,9 @@ angular.module( 'drag-and-drop', [] )
     .directive('droppable', function () {
         return {
             scope: {
-                drop: '&' // parent
+                drop: '&',
+                dragEnter: '&',
+                dragLeave: '&',
             },
             link: function(scope, element) {
 
@@ -53,6 +57,7 @@ angular.module( 'drag-and-drop', [] )
                         if (e.preventDefault) {
                             e.preventDefault();
                         }
+
                         this.classList.add('over');
                         return false;
                     },
@@ -63,6 +68,9 @@ angular.module( 'drag-and-drop', [] )
                     'dragenter',
                     function (e) {
                         this.classList.add('over');
+
+                        scope.$apply('dragEnter()');
+
                         return false;
                     },
                     false
@@ -72,6 +80,9 @@ angular.module( 'drag-and-drop', [] )
                     'dragleave',
                     function (e) {
                         this.classList.remove('over');
+
+                        scope.$apply('dragLeave()');
+
                         return false;
                     },
                     false
@@ -80,7 +91,7 @@ angular.module( 'drag-and-drop', [] )
                 el.addEventListener(
                     'drop',
                     function (e) {
-                             // Stops some browsers from redirecting.
+                        // Stops some browsers from redirecting.
                         if (e.stopPropagation) {
                             e.stopPropagation();
                         }

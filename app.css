@@ -14,8 +14,20 @@
 }
 
 [droppable] {
-    background-color: #e8fce3;
     height: 100%;
+}
+
+.content-area {
+    background-color: #e8fce3;
+}
+
+.drop-area {
+    margin: 10px;
+    padding: 5px;
+}
+
+.over {
+    border: 2px dashed black;    
 }
 
 .item {
