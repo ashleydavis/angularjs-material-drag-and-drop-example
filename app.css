@@ -26,6 +26,11 @@
     -webkit-user-drag: element;
 }
 
+.draggable-handle {
+    width: 100%;
+    height: 100%;
+}
+
 /*todo:
 
 as-sortable-placeholder

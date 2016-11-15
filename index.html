@@ -40,9 +40,13 @@
                         class="draggable-item"
                         ng-repeat="obj in dropped"
                         as-sortable-item
-                        as-sortable-item-handle
                         >
-                        {{obj.name}} | {{obj.temp}}
+                        <div 
+                            class="draggable-handle"
+                            as-sortable-item-handle
+                            >
+                            {{obj.name}} | {{obj.temp}}
+                        </div>
                     </div>
                 </div>
 
@@ -83,9 +87,13 @@
                             class="draggable-item"                        
                             ng-repeat="obj in palette"
                             as-sortable-item
-                            as-sortable-item-handle
                             >
-                            {{obj.name}}
+                            <div 
+                                class="draggable-handle"
+                                as-sortable-item-handle
+                                >
+                                {{obj.name}}
+                            </div>
                         </div>
                     </div>     
 
