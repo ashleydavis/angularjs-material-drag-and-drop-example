@@ -31,13 +31,11 @@
     height: 100%;
 }
 
-/*todo:
-
-as-sortable-placeholder
-    The place where it will be dropped
-
-.over {
-    border: 2px dashed black;    
+.as-sortable-placeholder {
+    border: 2px dashed black;   
+    width: 100% !important;
+    height: 100%;
 }
 
-*/
+.as-sortable-dragging { 
+}
